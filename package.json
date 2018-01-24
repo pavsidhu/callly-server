@@ -1,0 +1,11 @@
+{
+  "name": "callly-server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "backpack-core": "^0.5.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
