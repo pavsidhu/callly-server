@@ -1,13 +1,4 @@
 const typeDefs = `
-  type Query {
-    Users: [User]
-    User(id: ID): User
-    Foods: [Food]
-    Food: Food
-    Meals: [Meal]
-    Meal: Meal
-  }
-
   type User {
     id: ID!
     firstName: String!
@@ -20,8 +11,20 @@ const typeDefs = `
   }
 
   type FacebookAuth {
-    id: String
-    token: String
+    id: ID!
+    socialId: String!,
+    token: String!,
+    createdAt: String!
+    updatedAt: String!
+  }
+
+  type Meal {
+    id: ID!
+    name: String
+    foods: [Food]
+    user: User
+    createdAt: String!
+    updatedAt: String!
   }
 
   type Food {
@@ -36,13 +39,14 @@ const typeDefs = `
     updatedAt: String!
   }
 
-  type Meal {
-    id: ID!
-    name: String
-    foods: [Food]
-    user: User
-    createdAt: String!
-    updatedAt: String!
+  type Query {
+    Users: [User]
+    User(id: ID): User
+    Meals: [Meal]
+    Meal(id: ID): Meal
+    Foods: [Food]
+    Food(id: ID): Food
+  }
   }
 `
 
