@@ -10,9 +10,7 @@ const User = sequelize.define('user', {
     validate: { isEmail: true, isLowercase: true }
   },
   password: { type: Sequelize.STRING(60) },
-  activated: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
-  createdAt: { type: Sequelize.DATE },
-  updatedAt: { type: Sequelize.DATE }
+  activated: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false }
 })
 
 User.prototype.isEmailUnique = () =>
