@@ -27,14 +27,27 @@ const typeDefs = `
     updatedAt: String!
   }
 
+  type Manufacturer {
+    id: ID!
+    name: String!,
+    Foods: [Food]
+  }
+
+  type FoodSource {
+    id: ID!,
+    name: String!,
+    link: String!,
+    Foods: [Food]
+  }
+
   type Food {
     id: ID!
     name: String!
     protein: Float!
     carbohydrates: Float!
     fats: Float!
-    manufacturer: String
-    source: String!
+    manufacturer: Manufacturer!
+    source: FoodSource!
     createdAt: String!
     updatedAt: String!
   }
