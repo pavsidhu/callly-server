@@ -4,6 +4,15 @@ import Food from './models/Food'
 import Manufacturer from './models/Manufacturer'
 import FoodSource from './models/FoodSource'
 
+const createUser = async (_, { firstName, lastName, email, password }) =>
+  User.build({
+    firstName,
+    lastName,
+    email,
+    password
+  })
+    .save()
+    .catch(error => error)
 const resolvers = {
   Query: {
     Users: async () => await User.findAll(),
@@ -18,16 +27,7 @@ const resolvers = {
     FoodSource: async (_, { id }) => await FoodSource.findOne({ id })
   },
   Mutation: {
-    createUser: async (_, { firstName, lastName, email, password }) =>
-      User.build({
-        firstName,
-        lastName,
-        email,
-        password
-      })
-        .save()
-        .then(user => user)
-        .catch(e => e)
+    createUser,
   }
 }
 
