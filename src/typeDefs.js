@@ -59,6 +59,10 @@ const typeDefs = `
     Meal(id: ID): Meal
     Foods: [Food]
     Food(id: ID): Food
+    Manufacturers: [Manufacturer]
+    Manufacturer(id: ID): Manufacturer
+    FoodSources: [FoodSource]
+    FoodSource(id: ID): FoodSource
   }
 
   type Mutation {
