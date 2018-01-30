@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
+import Meal from './Meal'
 
 const User = sequelize.define('user', {
   firstName: { type: Sequelize.STRING(15), allowNull: false },
@@ -15,5 +16,11 @@ const User = sequelize.define('user', {
 
 User.prototype.isEmailUnique = () =>
   User.findOne({ where: { email: this.email, activated: true } }) ? false : true
+
+User.hasMany(Meal, {
+  foreignKey: {
+    allowNull: false
+  }
+})
 
 export default User
