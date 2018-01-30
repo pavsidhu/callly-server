@@ -4,7 +4,9 @@
   "main": "src/index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "backpack"
+    "dev": "backpack",
+    "build": "backpack build",
+    "start": "yarn build && node ./build/main.js"
   },
   "dependencies": {
     "apollo-server-express": "^1.3.2",
