@@ -4,15 +4,16 @@
   "main": "src/index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "backpack",
+    "dev": "backpack --require dotenv/config",
     "build": "backpack build",
-    "start": "yarn build && node ./build/main.js"
+    "start": "yarn build && node --require dotenv/config ./build/main.js"
   },
   "dependencies": {
     "apollo-server-express": "^1.3.2",
     "backpack-core": "^0.5.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "graphql": "^0.12.3",
     "graphql-tools": "^2.18.0",
