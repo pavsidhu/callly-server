@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 import sequelize from '../database'
 
 const Food = sequelize.define(
-  'food',
+  'foods',
   {
     name: { type: Sequelize.STRING(30), allowNull: false },
     protein: {
