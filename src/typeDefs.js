@@ -5,13 +5,18 @@ const typeDefs = `
     lastName: String!
     email: String!
     password: String
-    facebook: FacebookAuth
+    socialAuth: SocialAuth
     createdAt: String!
     updatedAt: String!
   }
 
-  type FacebookAuth {
+  enum SocialProvider {
+    FACEBOOK
+  }
+
+  type SocialAuth {
     id: ID!
+    provider: SocialProvider!,
     socialId: String!,
     token: String!,
     createdAt: String!
