@@ -23,11 +23,18 @@ const typeDefs = `
     updatedAt: String!
   }
 
+  enum MealName {
+    BREAKFAST
+    LUNCH
+    DINNER
+    SNACKS
+  }
+
   type Meal {
     id: ID!
-    name: String
+    name: MealName!
     foods: [Food]
-    user: User
+    user: User!
     createdAt: String!
     updatedAt: String!
   }
@@ -77,6 +84,30 @@ const typeDefs = `
         email: String!
         password: String
       ): User
+
+      createMeal(
+        name: String!,
+        userId: ID!
+      ): Meal
+
+      createFood(
+        name: String!,
+        protein: Int!,
+        carbohydates: Int!,
+        fat: Int!,
+        alcohol: Int,
+        sourceId: ID!,
+        manufacturerId: ID!
+      ): Food
+
+      createManufacturer(
+        name: String!
+      ): Manufacturer
+
+      createFoodSource(
+        name: String!,
+        link: String!
+      ): FoodSource
   }
 `
 
