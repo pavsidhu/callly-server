@@ -1,14 +1,21 @@
 import { User, Meal, Food, Manufacturer, FoodSource } from './models'
+import bcrypt from 'bcrypt'
 
-const createUser = async (_, { firstName, lastName, email, password }) =>
-  User.build({
+async function createUser(_, { firstName, lastName, email, password }) {
+  try {
+    password = await bcrypt.hash(password, 12)
+
+    return User.build({
     firstName,
     lastName,
     email,
     password
-  })
-    .save()
-    .catch(error => error)
+    }).save()
+  } catch (error) {
+    return error
+  }
+}
+
 const resolvers = {
   Query: {
     Users: async () => await User.findAll(),
