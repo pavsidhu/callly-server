@@ -1,8 +1,4 @@
-import User from './models/User'
-import Meal from './models/Meal'
-import Food from './models/Food'
-import Manufacturer from './models/Manufacturer'
-import FoodSource from './models/FoodSource'
+import { User, Meal, Food, Manufacturer, FoodSource } from './models'
 
 const createUser = async (_, { firstName, lastName, email, password }) =>
   User.build({
