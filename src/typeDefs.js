@@ -16,9 +16,9 @@ const typeDefs = `
 
   type SocialAuth {
     id: ID!
-    provider: SocialProvider!,
-    socialId: String!,
-    token: String!,
+    provider: SocialProvider!
+    socialId: String!
+    token: String!
     createdAt: String!
     updatedAt: String!
   }
@@ -41,14 +41,14 @@ const typeDefs = `
 
   type Manufacturer {
     id: ID!
-    name: String!,
+    name: String!
     Foods: [Food]
   }
 
   type FoodSource {
-    id: ID!,
-    name: String!,
-    link: String!,
+    id: ID!
+    name: String!
+    link: String!
     Foods: [Food]
   }
 
@@ -86,18 +86,18 @@ const typeDefs = `
       ): User
 
       createMeal(
-        name: String!,
+        name: String!
         userId: ID!
       ): Meal
 
       createFood(
-        name: String!,
-        protein: Int!,
-        carbohydates: Int!,
-        fat: Int!,
-        alcohol: Int,
-        sourceId: ID!,
-        manufacturerId: ID!
+        name: String!
+        protein: Float!
+        carbohydates: Float!
+        fat: Float!
+        alcohol: Float
+        sourceId: ID!
+        manufacturerId: ID
       ): Food
 
       createManufacturer(
@@ -105,7 +105,7 @@ const typeDefs = `
       ): Manufacturer
 
       createFoodSource(
-        name: String!,
+        name: String!
         link: String!
       ): FoodSource
   }
