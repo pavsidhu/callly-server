@@ -2,6 +2,7 @@ import Sequelize from 'sequelize'
 import sequelize from '../database'
 import Food from './Food'
 import MealFood from './MealFood'
+import User from './User'
 
 const Meal = sequelize.define('meal', {
   name: {
@@ -11,5 +12,6 @@ const Meal = sequelize.define('meal', {
 })
 
 Meal.belongsToMany(Food, { through: MealFood })
+Meal.belongsTo(User)
 
 export default Meal

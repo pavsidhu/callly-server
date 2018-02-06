@@ -18,12 +18,6 @@ const User = sequelize.define('user', {
 User.prototype.isEmailUnique = () =>
   User.findOne({ where: { email: this.email, activated: true } }) ? false : true
 
-User.hasMany(Meal, {
-  foreignKey: {
-    allowNull: false
-  }
-})
-
 User.hasMany(SocialAuth, {
   foreignKey: {
     allowNull: false
