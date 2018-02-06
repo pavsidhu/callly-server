@@ -12,8 +12,7 @@ async function createManufacturer(_, { name }) {
 
 const resolvers = {
   Query: {
-    Manufacturers: async () => await Manufacturer.findAll(),
-    Manufacturer: async (_, { id }) => await Manufacturer.findOne({ id })
+    manufacturer: async (_, { id }) => Manufacturer.findOne({ id })
   },
   Mutation: {
     createManufacturer

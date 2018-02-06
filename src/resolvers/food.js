@@ -21,8 +21,7 @@ async function createFood(
 
 const resolvers = {
   Query: {
-    Foods: async () => await Food.findAll(),
-    Food: async (_, { id }) => await Food.findOne({ id })
+    food: async (_, { id }) => Food.findOne({ id })
   },
   Mutation: {
     createFood

@@ -65,16 +65,11 @@ const typeDefs = `
   }
 
   type Query {
-    Users: [User]
-    User(id: ID): User
-    Meals: [Meal]
-    Meal(id: ID): Meal
-    Foods: [Food]
-    Food(id: ID): Food
-    Manufacturers: [Manufacturer]
-    Manufacturer(id: ID): Manufacturer
-    FoodSources: [FoodSource]
-    FoodSource(id: ID): FoodSource
+    user(id: ID): User
+    meal(id: ID): Meal
+    food(id: ID): Food
+    manufacturer(id: ID): Manufacturer
+    foodSource(id: ID): FoodSource
   }
 
   type Mutation {

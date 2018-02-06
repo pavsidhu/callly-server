@@ -18,8 +18,7 @@ async function createUser(_, { firstName, lastName, email, password }) {
 
 const resolvers = {
   Query: {
-    Users: async () => await User.findAll(),
-    User: async (_, { id }) => await User.findOne({ id })
+    user: async (_, { id }) => User.findOne({ id })
   },
   Mutation: {
     createUser

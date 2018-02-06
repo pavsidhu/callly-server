@@ -13,8 +13,7 @@ async function createFoodSource(_, { name, link }) {
 
 const resolvers = {
   Query: {
-    FoodSources: async () => await FoodSource.findAll(),
-    FoodSource: async (_, { id }) => await FoodSource.findOne({ id })
+    foodSource: async (_, { id }) => await FoodSource.findOne({ id })
   },
   Mutation: {
     createFoodSource
