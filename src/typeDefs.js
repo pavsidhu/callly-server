@@ -1,26 +1,26 @@
 const typeDefs = `
-  type User {
+  type Node {
     id: ID!
+    createdAt: String!
+    updatedAt: String!
+  }
+
+  type User implements Node {
     firstName: String!
     lastName: String!
     email: String!
     password: String
     socialAuth: SocialAuth
-    createdAt: String!
-    updatedAt: String!
   }
 
   enum SocialProvider {
     FACEBOOK
   }
 
-  type SocialAuth {
-    id: ID!
+  type SocialAuth implements Node {
     provider: SocialProvider!
     socialId: String!
     token: String!
-    createdAt: String!
-    updatedAt: String!
   }
 
   enum MealName {
@@ -30,38 +30,31 @@ const typeDefs = `
     SNACKS
   }
 
-  type Meal {
-    id: ID!
+  type Meal implements Node {
     name: MealName!
     foods: [Food]
     user: User!
-    createdAt: String!
-    updatedAt: String!
   }
 
-  type Manufacturer {
-    id: ID!
+  type Manufacturer implements Node {
     name: String!
     Foods: [Food]
   }
 
-  type FoodSource {
+  type FoodSource implements Node {
     id: ID!
     name: String!
     link: String!
     Foods: [Food]
   }
 
-  type Food {
-    id: ID!
+  type Food implements Node {
     name: String!
     protein: Float!
     carbohydrates: Float!
     fats: Float!
-    manufacturer: Manufacturer!
+    manufacturer: Manufacturer
     source: FoodSource!
-    createdAt: String!
-    updatedAt: String!
   }
 
   type Query {
